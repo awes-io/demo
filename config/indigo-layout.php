@@ -11,15 +11,30 @@ return [
 
     'url' => env('APP_URL', 'https://example.com'),
 
-    'logo' => env('APP_LOGO', 'https://static.awes.io/logo-blue.svg'),
+    'logo' => env('APP_LOGO', ''),
 
     'fonts' => ['https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700'],
 
-    'custom_styles' => '',
+    'custom_styles' => '
+        .login-page .login-page__full:before{
+            display: none;
+        }
 
-    'auth_bg_left' => 'https://static.awes.io/demo/color_dark.svg',
+        html[data-dark="true"] .login-page__full {
+            background-color: #2b2b2b;
+        }
 
-    'auth_bg_full' => 'https://static.awes.io/demo/color_dark.svg',
+        html:not([data-dark="true"]) .login-page__full {
+            background-color: #ffffff;
+        }
+        .login-page .login-page__swrap {
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.07);
+        }
+    ',
+
+    'auth_bg_left' => 'https://static.awes.io/demo/bg_gifs.svg',
+
+    'auth_bg_full' => 'https://static.awes.io/demo/awes-background.svg',
 
     'dist' => [
         'js/main.js',
