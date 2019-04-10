@@ -1,0 +1,16 @@
+/docker
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.phpunit.result.cache
+docker-compose.yml
+composer.lock
+install.sh
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.idea
