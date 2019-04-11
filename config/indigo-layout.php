@@ -15,22 +15,7 @@ return [
 
     'fonts' => ['https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700'],
 
-    'custom_styles' => '
-        .login-page .login-page__full:before{
-            display: none;
-        }
-
-        html[data-dark="true"] .login-page__full {
-            background-color: #2b2b2b;
-        }
-
-        html:not([data-dark="true"]) .login-page__full {
-            background-color: #ffffff;
-        }
-        .login-page .login-page__swrap {
-            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.07);
-        }
-    ',
+    'custom_styles' => '',
 
     'auth_bg_left' => 'https://static.awes.io/demo/bg_gifs.svg',
 

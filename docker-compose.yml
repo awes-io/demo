@@ -24,7 +24,8 @@ services:
     expose:
       - "3306"
     ports:
-      - "4306:3306"
+      - "5307:3306"
+      - "53060:33060"
     command: "--innodb_use_native_aio=0"
     volumes:
       - ./docker/mysql:/var/lib/mysql
@@ -46,7 +47,7 @@ services:
     links:
       - awes-demo-mysql:db
     ports:
-      - "80:5081"
+      - "5081:80"
     networks:
       awes_demo:
         ipv4_address: 172.29.1.4
