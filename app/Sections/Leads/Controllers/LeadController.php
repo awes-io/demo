@@ -71,6 +71,7 @@ class LeadController extends Controller
             ->from('leads')
             ->whereIn('id', $leadIds)
             ->period($request->period ?: 30)
+            ->colors(['#44376d'])
             ->build()
             ->chart();
     }
