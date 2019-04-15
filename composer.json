@@ -1,13 +1,14 @@
 {
-    "name": "awes-io/awes-io",
+    "name": "awes-io/demo",
     "type": "project",
-    "description": "Awes.IO build based on Laravel Framework.",
+    "description": "Awes.io Demo CRM system",
     "keywords": [
         "awes-io",
         "framework",
         "laravel",
         "vuejs",
-        "vuejs2"
+        "vuejs2",
+        "demo"
     ],
     "license": "MIT",
     "require": {
@@ -46,7 +47,7 @@
             "options": {
                 "http": {
                     "header": [
-                        "API-TOKEN: d2e26ad4d783816f8b0c80e475fc13ba440406078e57fb3fde911f91d7b5c24e"
+                        "API-TOKEN: <!-- API key from www.pkgkit.com  -->"
                     ]
                 }
             }
@@ -84,7 +85,7 @@
             "@php artisan package:discover --ansi"
         ],
         "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "@php -r \"file_exists('.env') || copy('.env.local', '.env');\""
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
