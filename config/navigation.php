@@ -2,20 +2,33 @@
 
 return [
     'navs' => [
-        [
-            'name' => 'Dashboard',
-            'link' => '/dashboard',
-            'icon' => 'speed'
+        'userNavigation' => [
+            [
+                'name' => 'Settings',
+                'link' => '/settings',
+            ],
+            [
+                'name' => 'Logout',
+                'link' => '/logout',
+                'class' => 'is-expand',
+            ],
         ],
-        [
-            'name' => 'Leads',
-            'link' => '/leads',
-            'icon' => 'report'
-        ],
-        [
-            'name' => 'Settings',
-            'link' => '/settings',
-            'icon' => 'settings'
-        ],
+        'sidebar' => [
+            [
+                'name' => 'Dashboard',
+                'link' => '/dashboard',
+                'icon' => 'speed'
+            ],
+            [
+                'name' => 'Leads',
+                'link' => '/leads',
+                'icon' => 'report'
+            ],
+            [
+                'name' => 'Settings',
+                'link' => '/settings',
+                'icon' => 'settings'
+            ],
+        ]
     ]
 ];

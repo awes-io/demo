@@ -6,7 +6,7 @@
 @section('content')
     <div class="grid">
         <div class="cell-2-3 cell-2-3--dsm cell-1-1--tsm">
-            @cardchart([
+            @cardchartline([
                 'parameters' => ['leads_period' => 30],
                 'api_url' => route('dashboard.leads.chart'),
                 'default_data' => $leadsChartData,
@@ -28,7 +28,7 @@
             ])
         </div>
         <div class="cell-1-3 cell-1-3--dsm cell-1-1--tsm">
-            @cardchart([
+            @cardchartline([
                 'parameters' => ['sales_period' => 60],
                 'api_url' => route('dashboard.sales.chart'),
                 'default_data' => $salesChartData,
@@ -43,8 +43,11 @@
         <div class="cell-2-3 cell-2-3--dsm cell-1-1--tsm">
             <div class="section">
                 <h2>Latest leads</h2>
-                <table-builder store-data="table-leads" :default='@json($leads)' row-url="{{ route('leads.index') }}/{id}">
-                    <h2 slot="empty">No data</h2>
+                @table([
+                    'row_url'=> route('leads.index') . '/{id}',
+                    'pagination' => false,
+                    'default_data' => $leads
+                ])
                     <tb-column name="name" label="{{ _p('pages.leads.table.col.name', 'Name') }}"></tb-column>
                     <tb-column name="email" label="{{ _p('pages.leads.table.col.email', 'Email') }}"></tb-column>
                     <tb-column name="sales_count" label="{{ _p('pages.leads.table.col.sales', 'Sales') }}" media="desktop"></tb-column>
@@ -54,34 +57,34 @@
                             <span class="status status_inprogress" v-else><span>Standard</span></span>
                         </template>
                     </tb-column>
-                    <template slot="hidden" slot-scope="m">
-                        <div>
-                            <p>{{ _p('pages.leads.table.mobile.phone', 'Phone') }}: @{{ m.data.phone }}</p>
-                            <p>{{ _p('pages.leads.table.mobile.sales', 'Sales') }}: @{{ m.data.sales_count }}</p>
-                            <p>{{ _p('pages.leads.table.mobile.created_at', 'Created') }}: @{{ m.data.created }}</p>
-                        </div>
-                    </template>
-                </table-builder>
+                    @slot('mobile')
+                        <p>{{ _p('pages.leads.table.mobile.phone', 'Phone') }}: @{{ m.data.phone }}</p>
+                        <p>{{ _p('pages.leads.table.mobile.sales', 'Sales') }}: @{{ m.data.sales_count }}</p>
+                        <p>{{ _p('pages.leads.table.mobile.created_at', 'Created') }}: @{{ m.data.created }}</p>
+                    @endslot
+                @endtable
             </div>
         </div>
 
         <div class="cell-1-3 cell-1-3--dsm cell-1-1--tsm">
             <div class="section">
                 <h2>Latest sales</h2>
-                <table-builder store-data="table-sales" :default='@json($sales)'>
-                    <h2 slot="empty">No data</h2>
+                @table([
+                    'pagination' => false,
+                    'default_data' => $sales
+                ])
                     <tb-column name="lead_name" label="{{ _p('pages.sales.table.col.lead_name', 'Name') }}"></tb-column>
                     <tb-column name="total" label="{{ _p('pages.sales.table.col.total', 'Total') }}">
                         <template slot-scope="d">
                             @{{ d.data.total }} &#8364;
                         </template>
                     </tb-column>
-                </table-builder>
+                @endtable
             </div>
         </div>
     </div>
 
-    @linechart([
+    @chart([
         'default_data' => $salesChartData,
         'parameters' => ['period' => 30],
         'api_url' => route('dashboard.sales.chart')

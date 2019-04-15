@@ -1,47 +1,17 @@
-@extends('awesio-auth::layouts.app')
+@extends('indigo-layout::auth2')
+
+@section('meta_title', _p('pages.reset_password.meta_title', 'Reset password') . ' // ' . config('app.name'))
+@section('meta_description', _p('pages.reset_password.meta_description', 'Package Kit - Managing your web projects and packages'))
+
+@section('title')
+    <h2>{{ _p('pages.reset_password.headline_pre', 'Reset password') }}</h2>
+    <span class="tf-caption tf-caption_mb-m">{{ _p('pages.reset_password.headline_pre_subtitle', 'Enter your email address you used to register. Number of messages is limited.') }}</span>
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">AWESIO {{ __('Reset Password') }}</div>
+    @include('indigo-layout::auth.passwords.email')
+@endsection
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@section('footer')
+    {!! _p('pages.reset_password.footer-headline', '<a href=":link_url">:link_name</a> ', ['link_url' => route('login'), 'link_name' => 'Back to login page']) !!}
 @endsection
