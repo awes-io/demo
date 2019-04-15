@@ -71,7 +71,8 @@ class LeadController extends Controller
             ->from('leads')
             ->whereIn('id', $leadIds)
             ->period($request->period ?: 30)
-            ->colors(['#44376d'])
+            ->colors(['#6896c1'])
+            ->backgroundColors([config('indigo-layout.chart_colors.blue')])
             ->build()
             ->chart();
     }

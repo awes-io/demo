@@ -49,23 +49,27 @@ class DashboardController extends Controller
     {
         $leadIds = $this->leads->get()->pluck('id')->toArray();
 
-        return $this->buildReport('leads', $leadIds, $request->leads_period ?: 30, []);
+        return $this->buildReport('leads', $leadIds, $request->leads_period ?: 30);
     }
 
     public function salesChart(Request $request)
     {
         $saleIds = $this->sales->get()->pluck('id')->toArray();
 
-        return $this->buildReport('sales', $saleIds, $request->sales_period ?: 60, ['#6896c1']);
+        return $this->buildReport(
+            'sales', $saleIds, $request->sales_period ?: 60, 
+            ['#6896c1'], [config('indigo-layout.chart_colors.blue')]
+        );
     }
 
-    protected function buildReport($table, $ids, $period, $colors)
+    protected function buildReport($table, $ids, $period, $colors = [], $backgroundColors = [])
     {
         return Reporter::report('period')
             ->from($table)
             ->whereIn('id', $ids)
             ->period($period)
             ->colors($colors)
+            ->backgroundColors($backgroundColors)
             ->build()
             ->chart();
     }

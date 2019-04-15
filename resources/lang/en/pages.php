@@ -114,5 +114,12 @@ return [
                 "lead_name" => "Name"
             ]
         ]
+    ],
+    "reset_password" => [
+        "meta_title" => "Reset password",
+        "meta_description" => "Package Kit - Managing your web projects and packages",
+        "headline_pre" => "Reset password",
+        "headline_pre_subtitle" => "Enter your email address you used to register. Number of messages is limited.",
+        "footer-headline" => "<a href=\":link_url\">:link_name</a> "
     ]
 ];
