@@ -13,7 +13,7 @@ Please follow to [Docker Website](https://www.docker.com/) and install a docker 
 ### Available URLs
 
 #### Local environment
-- [http://127.0.0.1:5080](http://127.0.0.1:5080)
+- [http://localhost:5080](http://localhost:5080)
 
 #### PhpMyAdmin
-- [http://127.0.0.1:5081](http://127.0.0.1:5081)
+- [http://localhost:5081](http://localhost:5081)

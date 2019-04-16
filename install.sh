@@ -9,12 +9,26 @@ yellow="\033[33m"
 cyan="\033[36m"
 white="\033[37m"
 
-#chmod -R 777 ./storage
-#chmod -R 777 ./bootstrap
+printf "$green> Check chmod for storage dirrectory$reset\n"
+chmod -R 777 ./storage
+
+printf "$green> Check bootstrap for storage dirrectory$reset\n"
+chmod -R 777 ./bootstrap
+
+printf "$green> Shutdown all current docker demo containers$reset\n"
 docker-compose down -v
+
+printf "$green> Docker compose up$reset\n"
 docker-compose up -d --build
-#cp .env.local .env
-#rm -f ./composer.lock
-#docker exec -it awes-demo-php bash -c "composer update"
-#docker exec -i awes-demo-php sh -c "php artisan key:generate && php artisan migrate:fresh --seed && php artisan cache:clear"
-#docker exec -i awes-demo-php sh -c "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && echo 'deb https://dl.yarnpkg.com/debian/ stable main' | tee /etc/apt/sources.list.d/yarn.list && apt-get update && apt-get install yarn && yarn install"
+
+printf "$green> Create .ENV file from local example$reset\n"
+cp .env.local .env
+
+printf "$green> Remove composer.lock file for getting a new updates$reset\n"
+rm -f ./composer.lock
+
+printf "$green> Install all dependencies$reset\n"
+docker exec -it awes-demo-php bash -c "composer install"
+
+printf "$green> Service commands for Laravel: migration, key generate, cache clear etc $reset\n"
+docker exec -i awes-demo-php sh -c "php artisan key:generate && php artisan migrate:fresh --seed && php artisan cache:clear"
