@@ -34,7 +34,7 @@
             <div class="section">
                 @table([
                     'name' => 'leads_table',
-                    'scope_api_url' => route('leads.scope')
+                    'scope_api_url' => route('analytics.scope')
                 ])
                     <tb-column name="name" label="{{ _p('pages.leads.table.col.name', 'Name') }}"></tb-column>
                     <tb-column name="email" label="{{ _p('pages.leads.table.col.email', 'Email') }}"></tb-column>

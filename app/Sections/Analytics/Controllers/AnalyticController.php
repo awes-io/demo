@@ -21,12 +21,9 @@ class AnalyticController extends Controller
 
     public function index(Request $request)
     {
-        $leads = $this->leads->withCount(['sales'])->latest()->take(10)->get();
-
         return view('sections.analytics.index', [
             'h1' => _p('pages.analytics.h1', 'Analytics'),
             'leadsChartData' => $this->chart($request),
-            'leads' => Lead::collection($leads),
         ]);
     }
 
@@ -49,5 +46,13 @@ class AnalyticController extends Controller
             ->datasetProperties([
                 ['pointRadius' => 0, 'lineTension' => 0],
             ])->build()->chart();
+    }
+
+    public function scope(Request $request)
+    {
+        return Lead::collection(
+            $this->leads->scope($request)->withCount('sales')
+                ->latest()->smartPaginate()
+        );
     }
 }

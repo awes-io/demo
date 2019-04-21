@@ -102,11 +102,11 @@
 
     <div class="grid">
         <div class="cell-2-3 cell-2-3--dsm cell-1-1--tsm">
-                @chart([
-                    'default_data' => $salesChartData,
-                    'parameters' => ['period' => 30],
-                    'api_url' => route('dashboard.leads.chart')
-                ])
+            @chart([
+                'default_data' => $salesChartData,
+                'parameters' => ['period' => 30],
+                'api_url' => route('dashboard.leads.chart')
+            ])
         </div>
         <div class="cell-1-3 cell-1-3--dsm cell-1-1--tsm">
             @cardchartdoughnut([
