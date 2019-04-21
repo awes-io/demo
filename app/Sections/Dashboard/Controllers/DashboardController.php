@@ -86,28 +86,23 @@ class DashboardController extends Controller
 
     protected function leadsComparisonChart(Request $request)
     {
-        return Reporter::report('periodComparison')
-            ->from('leads')->period(42)
-            ->colors([
-                '#3f4bb5', 
-                '#3f87c716'
-            ])
-            ->types(['bar', 'line'])
-            ->stackBy([
-                'is_premium' => [1,2]
-            ])
+        $report = Reporter::report('periodComparison')
+            ->from('leads')
+            ->period(42)
+            ->colors(['#3f87c7', '#3f4bb5', '#3f87c716'])
+            ->backgroundColors(['#3f87c7', '#3f4bb5', '#3f87c716'])
+            ->stackBy(['is_premium' => [1,2]])
             ->datasetProperties([
-                ['pointRadius' => 0, 'lineTension' => 0],
-                ['pointRadius' => 0, 'lineTension' => 0],
-                ['pointRadius' => 0, 'lineTension' => 0],
-                // ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
-                // ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
-                // ['yAxisID' => 'y-axis-2', 'type' => 'line'],
+                ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
+                ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
+                ['pointRadius' => 0, 'lineTension' => 0, 'yAxisID' => 'y-axis-2', 'type' => 'line'],
             ])
-            ->backgroundColors([
-                '#3f4bb5', 
-                '#3f87c716'
-            ])->build()->chart();
+            ->build()->chart();
+
+        $report['datasets'][0]['label'] = 'Standard';
+        $report['datasets'][1]['label'] = 'Premium';
+
+        return $report;
     }
 
     protected function buildReport($table, $ids, $period, $colors = [], $backgroundColors = [])

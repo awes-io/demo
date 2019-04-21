@@ -6,12 +6,30 @@
 @section('content')
     <div class="grid">
         <div class="cell-full">
-            @chart([
+            <chart-builder type='bar' :data='@json($leadsComparisonChartData)' :options='{
+                scales: {
+                    xAxes: [{
+                        stacked: true
+                    }],
+                    yAxes: [{
+                        stacked: true,
+                        id: "y-axis-1",
+                        display: false
+                    }, {
+                        id: "y-axis-2",
+                        display: false
+                    }],
+                },
+                plugins: {
+                    labels: false
+                }
+            }'></chart-builder>
+            {{-- @chart([
                 'default_data' => $leadsComparisonChartData,
                 'parameters' => ['period' => 30],
                 'api_url' => route('dashboard.leads.chart'),
                 'chart_type' => 'bar'
-            ])
+            ]) --}}
         </div>
         <div class="cell-2-3 cell-2-3--dsm cell-1-1--tsm">
             @cardchartline([
