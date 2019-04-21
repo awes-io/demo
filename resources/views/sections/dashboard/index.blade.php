@@ -5,6 +5,14 @@
 
 @section('content')
     <div class="grid">
+        <div class="cell-full">
+            @chart([
+                'default_data' => $leadsComparisonChartData,
+                'parameters' => ['period' => 30],
+                'api_url' => route('dashboard.leads.chart'),
+                'chart_type' => 'bar'
+            ])
+        </div>
         <div class="cell-2-3 cell-2-3--dsm cell-1-1--tsm">
             @cardchartline([
                 'parameters' => ['leads_period' => 30],
@@ -39,6 +47,7 @@
             ])
         </div>
     </div>
+    
     <div class="grid">
         <div class="cell-2-3 cell-2-3--dsm cell-1-1--tsm">
             <div class="section">

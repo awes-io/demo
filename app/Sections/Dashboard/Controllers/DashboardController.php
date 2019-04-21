@@ -5,8 +5,8 @@ namespace App\Sections\Dashboard\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use AwesIO\Reporter\Facades\Reporter;
-use App\Sections\Leads\Resources\LeadCollection;
-use App\Sections\Sales\Resources\SaleCollection;
+use App\Sections\Leads\Resources\Lead;
+use App\Sections\Sales\Resources\Sale;
 use App\Sections\Leads\Repositories\LeadRepository;
 use App\Sections\Sales\Repositories\SaleRepository;
 
@@ -39,8 +39,9 @@ class DashboardController extends Controller
                 'h1' => _p('pages.dashboard.h1', 'Dashboard'),
                 'leadsChartData' => $this->leadsChart($request),
                 'salesChartData' => $this->salesChart($request),
-                'leads' => new LeadCollection($leads),
-                'sales' => new SaleCollection($sales)
+                'leadsComparisonChartData' => $this->leadsComparisonChart($request),
+                'leads' => Lead::collection($leads),
+                'sales' => Sale::collection($sales)
             ]
         );
     }
@@ -60,6 +61,21 @@ class DashboardController extends Controller
             'sales', $saleIds, $request->sales_period ?: 60, 
             ['#6896c1'], [config('indigo-layout.chart_colors.blue')]
         );
+    }
+
+    public function leadsComparisonChart(Request $request)
+    {
+        return Reporter::report('periodComparison')
+            ->from('leads')->period(42)
+            ->colors([
+                '#3f4bb5', 
+                '#3f87c716'
+            ])
+            ->types(['bar', 'line'])
+            ->backgroundColors([
+                '#3f4bb5', 
+                '#3f87c716'
+            ])->build()->chart();
     }
 
     protected function buildReport($table, $ids, $period, $colors = [], $backgroundColors = [])

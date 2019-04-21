@@ -34,8 +34,12 @@ Route::middleware('auth')->group(function () {
         Route::get('{id}', 'LeadController@show')->name('show');
         Route::post('/', 'LeadController@store')->name('store');
         Route::patch('{id}', 'LeadController@update')->name('update');
+    });
 
-        Route::get('chart/leads', 'LeadController@chart')->name('leads.chart');
+    # Analytics
+    Route::prefix('analytics')->as('analytics.')->namespace('\App\Sections\Analytics\Controllers')->group(function () {
+        Route::get('/', 'AnalyticController@index')->name('index');
+        Route::get('chart/leads', 'AnalyticController@chart')->name('leads.chart');
     });
 
     // Settings

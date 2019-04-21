@@ -46,12 +46,6 @@
         </div>
     </div>
 
-    @chart([
-        'default_data' => $leadsChartData,
-        'parameters' => ['is_premium' => ''],
-        'api_url' => route('leads.leads.chart')
-    ])
-
     @table([
         'name' => 'leads',
         'row_url'=> route('leads.index') . '/{id}',
