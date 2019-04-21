@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('dashboard')->as('dashboard.')->namespace('\App\Sections\Dashboard\Controllers')->group(function () {
         Route::get('/', 'DashboardController@index')->name('index');
         Route::get('leads/chart', 'DashboardController@leadsChart')->name('leads.chart');
+        Route::get('sales/chart', 'DashboardController@salesChart')->name('sales.chart');
+        Route::get('leads/chart/doughnut', 'DashboardController@leadsDoughnutChart')->name('leads.doughnut');
     });
 
     # Leads

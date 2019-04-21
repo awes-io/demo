@@ -13,12 +13,19 @@
                     </div>
                 </div>
             </div>
+            <div class="cell-inline cell-1-1--mlg">
+                <div class="grid grid-ungap">
+                    <div class="cell-inline cell-1-1--mlg">
+                        @filtergroup(['filter' => ['7' => 'Week', '30' => 'Month', '90' => '3 Months'], 'variable' => 'period', 'default' => '30'])
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     @chart([
         'default_data' => $leadsChartData,
-        'parameters' => ['is_premium' => ''],
+        'parameters' => ['is_premium' => '', 'period' => '30'],
         'api_url' => route('analytics.leads.chart')
     ])
 

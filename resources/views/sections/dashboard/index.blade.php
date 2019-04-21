@@ -38,8 +38,15 @@
         <div class="cell-1-3 cell-1-3--dsm cell-1-1--tsm">
             @cardchartline([
                 'parameters' => ['sales_period' => 60],
-                'api_url' => route('dashboard.leads.chart'),
+                'api_url' => route('dashboard.sales.chart'),
                 'default_data' => $salesChartData,
+                'filter' => [
+                    7 => 'Week',
+                    30 => 'Month',
+                    60 => '2 Months',
+                ],
+                'filter_variable' => 'sales_period',
+                'filter_default' => 30,
                 'title' => 'Sales',
                 'label' => '+30%',
                 'value' => '100k',
@@ -93,9 +100,20 @@
         </div>
     </div>
 
-    @chart([
-        'default_data' => $salesChartData,
-        'parameters' => ['period' => 30],
-        'api_url' => route('dashboard.leads.chart')
-    ])
+    <div class="grid">
+        <div class="cell-2-3 cell-2-3--dsm cell-1-1--tsm">
+                @chart([
+                    'default_data' => $salesChartData,
+                    'parameters' => ['period' => 30],
+                    'api_url' => route('dashboard.leads.chart')
+                ])
+        </div>
+        <div class="cell-1-3 cell-1-3--dsm cell-1-1--tsm">
+            @cardchartdoughnut([
+                'parameters' => ['period' => 30],
+                'api_url' => route('dashboard.leads.doughnut')
+            ])
+        </div>
+    </div>
+
 @endsection

@@ -53,6 +53,27 @@ class DashboardController extends Controller
         return $this->buildReport('leads', $leadIds, $request->leads_period ?: 30);
     }
 
+    public function leadsDoughnutChart(Request $request)
+    {
+        $report = Reporter::report('period')
+            ->from('leads')
+            ->period(90)
+            ->types(['doughnut'])
+            ->groupBy('is_premium')
+            ->limit(5)
+            ->datasetProperties([
+                [
+                    'borderColor' => config('indigo-layout.doughnut_colors'),
+                    'backgroundColor' => config('indigo-layout.doughnut_colors')
+                ]
+            ])->build()->chart();
+        
+        $report['labels'][0] = 'Standard';
+        $report['labels'][1] = 'Premium';
+
+        return $report;
+    }
+
     protected function salesChart(Request $request)
     {
         $saleIds = $this->sales->get()->pluck('id')->toArray();
