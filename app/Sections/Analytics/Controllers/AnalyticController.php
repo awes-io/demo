@@ -5,6 +5,7 @@ namespace App\Sections\Analytics\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use AwesIO\Reporter\Facades\Reporter;
+use App\Sections\Leads\Resources\Lead;
 use App\Sections\Leads\Repositories\LeadRepository;
 
 class AnalyticController extends Controller
@@ -20,9 +21,12 @@ class AnalyticController extends Controller
 
     public function index(Request $request)
     {
+        $leads = $this->leads->withCount(['sales'])->latest()->take(10)->get();
+
         return view('sections.analytics.index', [
             'h1' => _p('pages.analytics.h1', 'Analytics'),
             'leadsChartData' => $this->chart($request),
+            'leads' => Lead::collection($leads),
         ]);
     }
 
@@ -39,10 +43,11 @@ class AnalyticController extends Controller
         return Reporter::report('period')
             ->from('leads')
             ->whereIn('id', $leadIds)
-            ->period($request->period ?: 30)
+            ->period($request->period ?: 60)
             ->colors(['#6896c1'])
             ->backgroundColors([config('indigo-layout.chart_colors.blue')])
-            ->build()
-            ->chart();
+            ->datasetProperties([
+                ['pointRadius' => 0, 'lineTension' => 0],
+            ])->build()->chart();
     }
 }
