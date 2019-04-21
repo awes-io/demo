@@ -53,7 +53,7 @@ class DashboardController extends Controller
         return $this->buildReport('leads', $leadIds, $request->leads_period ?: 30);
     }
 
-    public function salesChart(Request $request)
+    protected function salesChart(Request $request)
     {
         $saleIds = $this->sales->get()->pluck('id')->toArray();
 
@@ -63,7 +63,7 @@ class DashboardController extends Controller
         );
     }
 
-    public function leadsComparisonChart(Request $request)
+    protected function leadsComparisonChart(Request $request)
     {
         return Reporter::report('periodComparison')
             ->from('leads')->period(42)
@@ -72,6 +72,17 @@ class DashboardController extends Controller
                 '#3f87c716'
             ])
             ->types(['bar', 'line'])
+            ->stackBy([
+                'is_premium' => [1,2]
+            ])
+            ->datasetProperties([
+                ['pointRadius' => 0, 'lineTension' => 0],
+                ['pointRadius' => 0, 'lineTension' => 0],
+                ['pointRadius' => 0, 'lineTension' => 0],
+                // ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
+                // ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
+                // ['yAxisID' => 'y-axis-2', 'type' => 'line'],
+            ])
             ->backgroundColors([
                 '#3f4bb5', 
                 '#3f87c716'
@@ -86,6 +97,9 @@ class DashboardController extends Controller
             ->period($period)
             ->colors($colors)
             ->backgroundColors($backgroundColors)
+            ->datasetProperties([
+                ['pointRadius' => 0, 'lineTension' => 0],
+            ])
             ->build()
             ->chart();
     }

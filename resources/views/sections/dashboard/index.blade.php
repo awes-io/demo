@@ -38,7 +38,7 @@
         <div class="cell-1-3 cell-1-3--dsm cell-1-1--tsm">
             @cardchartline([
                 'parameters' => ['sales_period' => 60],
-                'api_url' => route('dashboard.sales.chart'),
+                'api_url' => route('dashboard.leads.chart'),
                 'default_data' => $salesChartData,
                 'title' => 'Sales',
                 'label' => '+30%',
@@ -96,6 +96,6 @@
     @chart([
         'default_data' => $salesChartData,
         'parameters' => ['period' => 30],
-        'api_url' => route('dashboard.sales.chart')
+        'api_url' => route('dashboard.leads.chart')
     ])
 @endsection
