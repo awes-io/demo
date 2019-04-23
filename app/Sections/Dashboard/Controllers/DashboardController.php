@@ -88,7 +88,7 @@ class DashboardController extends Controller
     {
         $report = Reporter::report('periodComparison')
             ->from('leads')
-            ->period(42)
+            ->period(49)
             ->colors(['#3f87c7', '#3f4bb5', '#3f87c716'])
             ->backgroundColors(['#3f87c7', '#3f4bb5', '#3f87c716'])
             ->stackBy(['is_premium' => [1,2]])
