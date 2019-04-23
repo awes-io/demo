@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'DashboardController@index')->name('index');
         Route::get('leads/chart', 'DashboardController@leadsChart')->name('leads.chart');
         Route::get('sales/chart', 'DashboardController@salesChart')->name('sales.chart');
+        Route::get('leads/chart/doughnut', 'DashboardController@leadsDoughnutChart')->name('leads.doughnut');
     });
 
     # Leads
@@ -34,8 +35,13 @@ Route::middleware('auth')->group(function () {
         Route::get('{id}', 'LeadController@show')->name('show');
         Route::post('/', 'LeadController@store')->name('store');
         Route::patch('{id}', 'LeadController@update')->name('update');
+    });
 
-        Route::get('chart/leads', 'LeadController@chart')->name('leads.chart');
+    # Analytics
+    Route::prefix('analytics')->as('analytics.')->namespace('\App\Sections\Analytics\Controllers')->group(function () {
+        Route::get('/', 'AnalyticController@index')->name('index');
+        Route::get('chart/leads', 'AnalyticController@chart')->name('leads.chart');
+        Route::get('scope', 'AnalyticController@scope')->name('scope');
     });
 
     // Settings

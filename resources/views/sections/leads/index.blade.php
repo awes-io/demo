@@ -46,14 +46,8 @@
         </div>
     </div>
 
-    @chart([
-        'default_data' => $leadsChartData,
-        'parameters' => ['is_premium' => ''],
-        'api_url' => route('leads.leads.chart')
-    ])
-
     @table([
-        'name' => 'leads',
+        'name' => 'leads_table',
         'row_url'=> route('leads.index') . '/{id}',
         'scope_api_url' => route('leads.scope')
     ])
@@ -83,7 +77,7 @@
 
     {{--Add lead--}}
     <modal-window name="form" class="modal_formbuilder" title="{{ _p('pages.leads.modal.new_lead.title', 'Add new lead') }}">
-        <form-builder url="{{ route('leads.store') }}" @sended="$refs['pb.leads'].update()" send-text="{{ _p('pages.leads.modal.new_lead.send_btn', 'Add new lead') }}">
+        <form-builder url="{{ route('leads.store') }}" @sended="$refs.leads_table.update()" send-text="{{ _p('pages.leads.modal.new_lead.send_btn', 'Add new lead') }}">
             <div class="section">
                 <fb-input name="name" label="{{ _p('pages.leads.modal.new_lead.name', 'Name') }}"></fb-input>
                 <fb-input name="email" label="{{ _p('pages.leads.modal.new_lead.email', 'Email') }}"></fb-input>
@@ -94,7 +88,7 @@
 
     {{--Edit lead--}}
     <modal-window name="edit-lead" class="modal_formbuilder" title="{{ _p('pages.leads.modal.edit_lead.title', 'Edit lead') }}">
-        <form-builder method="PATCH" url="/leads/{id}" store-data="editLead" @sended="$refs['pb.leads'].update()">
+        <form-builder method="PATCH" url="/leads/{id}" store-data="editLead" @sended="$refs.leads_table.update()">
             <fb-input name="name" label="{{ _p('pages.leads.modal.edit_lead.name', 'Name') }}"></fb-input>
             <fb-input name="email" label="{{ _p('pages.leads.modal.edit_lead.email', 'Email') }}"></fb-input>
             <fb-phone name="phone" label="{{ _p('pages.leads.modal.edit_lead.phone', 'Phone number') }}"></fb-phone>

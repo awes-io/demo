@@ -5,8 +5,8 @@ namespace App\Sections\Dashboard\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use AwesIO\Reporter\Facades\Reporter;
-use App\Sections\Leads\Resources\LeadCollection;
-use App\Sections\Sales\Resources\SaleCollection;
+use App\Sections\Leads\Resources\Lead;
+use App\Sections\Sales\Resources\Sale;
 use App\Sections\Leads\Repositories\LeadRepository;
 use App\Sections\Sales\Repositories\SaleRepository;
 
@@ -39,8 +39,9 @@ class DashboardController extends Controller
                 'h1' => _p('pages.dashboard.h1', 'Dashboard'),
                 'leadsChartData' => $this->leadsChart($request),
                 'salesChartData' => $this->salesChart($request),
-                'leads' => new LeadCollection($leads),
-                'sales' => new SaleCollection($sales)
+                'leadsComparisonChartData' => $this->leadsComparisonChart($request),
+                'leads' => Lead::collection($leads),
+                'sales' => Sale::collection($sales)
             ]
         );
     }
@@ -52,7 +53,28 @@ class DashboardController extends Controller
         return $this->buildReport('leads', $leadIds, $request->leads_period ?: 30);
     }
 
-    public function salesChart(Request $request)
+    public function leadsDoughnutChart(Request $request)
+    {
+        $report = Reporter::report('period')
+            ->from('leads')
+            ->period(90)
+            ->types(['doughnut'])
+            ->groupBy('is_premium')
+            ->limit(5)
+            ->datasetProperties([
+                [
+                    'borderColor' => config('indigo-layout.doughnut_colors'),
+                    'backgroundColor' => config('indigo-layout.doughnut_colors')
+                ]
+            ])->build()->chart();
+        
+        $report['labels'][0] = 'Standard';
+        $report['labels'][1] = 'Premium';
+
+        return $report;
+    }
+
+    protected function salesChart(Request $request)
     {
         $saleIds = $this->sales->get()->pluck('id')->toArray();
 
@@ -60,6 +82,27 @@ class DashboardController extends Controller
             'sales', $saleIds, $request->sales_period ?: 60, 
             ['#6896c1'], [config('indigo-layout.chart_colors.blue')]
         );
+    }
+
+    protected function leadsComparisonChart(Request $request)
+    {
+        $report = Reporter::report('periodComparison')
+            ->from('leads')
+            ->period(49)
+            ->colors(['#3f87c7', '#3f4bb5', '#3f87c716'])
+            ->backgroundColors(['#3f87c7', '#3f4bb5', '#3f87c716'])
+            ->stackBy(['is_premium' => [1,2]])
+            ->datasetProperties([
+                ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
+                ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
+                ['pointRadius' => 0, 'lineTension' => 0, 'yAxisID' => 'y-axis-2', 'type' => 'line'],
+            ])
+            ->build()->chart();
+
+        $report['datasets'][0]['label'] = 'Standard';
+        $report['datasets'][1]['label'] = 'Premium';
+
+        return $report;
     }
 
     protected function buildReport($table, $ids, $period, $colors = [], $backgroundColors = [])
@@ -70,6 +113,9 @@ class DashboardController extends Controller
             ->period($period)
             ->colors($colors)
             ->backgroundColors($backgroundColors)
+            ->datasetProperties([
+                ['pointRadius' => 0, 'lineTension' => 0],
+            ])
             ->build()
             ->chart();
     }

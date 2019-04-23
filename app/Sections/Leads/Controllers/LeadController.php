@@ -4,9 +4,8 @@ namespace App\Sections\Leads\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use AwesIO\Reporter\Facades\Reporter;
 use App\Sections\Leads\Requests\StoreLead;
-use App\Sections\Leads\Resources\LeadCollection;
+use App\Sections\Leads\Resources\Lead;
 use App\Sections\Leads\Repositories\LeadRepository;
 
 class LeadController extends Controller
@@ -24,14 +23,13 @@ class LeadController extends Controller
     {
         return view('sections.leads.index', [
             'h1' => _p('pages.leads.h1', 'Leads'),
-            'leadsChartData' => $this->chart($request),
             'leads' => $this->scope($request)->response()->getData()
         ]);
     }
 
     public function scope(Request $request)
     {
-        return new LeadCollection(
+        return Lead::collection(
             $this->leads->scope($request)->withCount('sales')
                 ->latest()->smartPaginate()
         );
@@ -55,25 +53,5 @@ class LeadController extends Controller
     public function update(StoreLead $request, $id)
     {
         $this->leads->update($request->only($this->keys), $id);
-    }
-
-    public function chart(Request $request)
-    {
-        $builder = $this->leads;
-
-        if ($request->is_premium) {
-            $builder = $this->leads->where('is_premium', $request->is_premium);
-        }
-
-        $leadIds = $builder->get()->pluck('id')->toArray();
-
-        return Reporter::report('period')
-            ->from('leads')
-            ->whereIn('id', $leadIds)
-            ->period($request->period ?: 30)
-            ->colors(['#6896c1'])
-            ->backgroundColors([config('indigo-layout.chart_colors.blue')])
-            ->build()
-            ->chart();
     }
 }

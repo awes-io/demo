@@ -23,7 +23,7 @@
         "awes-io/localization-helper": "^1.0",
         "awes-io/modal-window": "^1.0",
         "awes-io/navigation": "^0.0.2",
-        "awes-io/reporter": "^0.0.5",
+        "awes-io/reporter": "^0.0",
         "awes-io/repository": "^1.0",
         "awes-io/system-notify": "^1.1",
         "awes-io/table-builder": "^1.0",

@@ -25,6 +25,11 @@ return [
                 'icon' => 'report'
             ],
             [
+                'name' => 'Analytics',
+                'link' => '/analytics',
+                'icon' => 'report'
+            ],
+            [
                 'name' => 'Settings',
                 'link' => '/settings',
                 'icon' => 'settings'

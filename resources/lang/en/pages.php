@@ -121,5 +121,8 @@ return [
         "headline_pre" => "Reset password",
         "headline_pre_subtitle" => "Enter your email address you used to register. Number of messages is limited.",
         "footer-headline" => "<a href=\":link_url\">:link_name</a> "
+    ],
+    "analytics" => [
+        "h1" => "Analytics"
     ]
 ];
