@@ -70,6 +70,8 @@ class DashboardController extends Controller
         
         $report['labels'][0] = 'Standard';
         $report['labels'][1] = 'Premium';
+        $report['labels'][2] = 'Priveleged';
+        $report['labels'][3] = 'VIP';
 
         return $report;
     }
@@ -88,11 +90,13 @@ class DashboardController extends Controller
     {
         $report = Reporter::report('periodComparison')
             ->from('leads')
-            ->period(49)
-            ->colors(['#3f87c7', '#3f4bb5', '#3f87c716'])
-            ->backgroundColors(['#3f87c7', '#3f4bb5', '#3f87c716'])
-            ->stackBy(['is_premium' => [1,2]])
+            ->period(35)
+            ->colors(['#c6d8f6', '#90b2ec', '#4e7ccc', '#3b3da0', '#3f87c716'])
+            ->backgroundColors(['#c6d8f6', '#90b2ec', '#4e7ccc', '#3b3da0', '#3f87c716'])
+            ->stackBy(['is_premium' => [1,2,3,4]])
             ->datasetProperties([
+                ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
+                ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
                 ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
                 ['yAxisID' => 'y-axis-1', 'type' => 'bar'],
                 ['pointRadius' => 0, 'lineTension' => 0, 'yAxisID' => 'y-axis-2', 'type' => 'line'],
@@ -101,6 +105,8 @@ class DashboardController extends Controller
 
         $report['datasets'][0]['label'] = 'Standard';
         $report['datasets'][1]['label'] = 'Premium';
+        $report['datasets'][2]['label'] = 'Priveleged';
+        $report['datasets'][3]['label'] = 'VIP';
 
         return $report;
     }

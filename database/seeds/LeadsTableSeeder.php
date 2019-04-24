@@ -18,7 +18,7 @@ class LeadsTableSeeder extends Seeder
 
         factory(Lead::class, $count)->create()->each(function ($lead) use ($count) {
             $lead->created_at = Carbon::now()
-                ->subDays($count - $lead->id - random_int(0, round(($count - $lead->id)/2)))
+                ->subDays(random_int(0, 70))
                 ->format('Y-m-d H:i:s');
             $lead->save();
 

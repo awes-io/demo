@@ -66,6 +66,10 @@ return [
             "sort_by" => "Sort by",
             "name" => "Lead name",
             "filter" => "Filter"
+        ],
+        "notify" => [
+            "store" => "New lead was successfully created",
+            "update" => "Lead was successfully updated"
         ]
     ],
     "settings" => [
