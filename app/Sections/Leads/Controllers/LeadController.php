@@ -12,8 +12,6 @@ class LeadController extends Controller
 {
     protected $leads;
 
-    protected $keys = ['name', 'email', 'phone'];
-
     public function __construct(LeadRepository $leads)
     {
         $this->leads = $leads;
@@ -47,11 +45,15 @@ class LeadController extends Controller
 
     public function store(StoreLead $request)
     {
-        $this->leads->create($request->only($this->keys));
+        $this->leads->create($request->all());
+
+        return notify(_p('pages.leads.notify.store', 'New lead was successfully created'));
     }
 
     public function update(StoreLead $request, $id)
     {
-        $this->leads->update($request->only($this->keys), $id);
+        $this->leads->update($request->all(), $id);
+
+        return notify(_p('pages.leads.notify.update', 'Lead was successfully updated'));
     }
 }
