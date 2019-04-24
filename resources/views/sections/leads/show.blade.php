@@ -11,8 +11,10 @@
             <p><strong>{{ _p('pages.lead.info.email', 'Email') }}:</strong> @{{ data.email }}</p>
             <p><strong>{{ _p('pages.lead.info.phone', 'Phone') }}:</strong> @{{ data.phone }}</p>
             <p>
-                <span class="status status_success" v-if="data.is_premium == 2"><span>Premium</span></span>
-                <span class="status status_inprogress" v-else><span>Standard</span></span>
+                <span class="status status_wait" v-if="data.is_premium == 1"><span>Standard</span></span>
+                <span class="status status_inprogress" v-if="data.is_premium == 2"><span>Premium</span></span>
+                <span class="status status_success" v-if="data.is_premium == 3"><span>Priveleged</span></span>
+                <span class="status status_warning" v-if="data.is_premium == 4"><span>VIP</span></span>
             </p>
             <p>
                 <button class="upper-link" @click="AWES._store.commit('setData', {param: 'editLead', data: data}); AWES.emit('modal::edit-lead.open')">{{ _p('pages.lead.info.edit', 'Edit') }}</button>

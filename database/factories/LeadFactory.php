@@ -9,6 +9,6 @@ $factory->define(Lead::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->email,
         'phone' => $faker->phoneNumber,
-        'is_premium' => $faker->numberBetween(1, 2),
+        'is_premium' => $faker->numberBetween(1, 4),
     ];
 });

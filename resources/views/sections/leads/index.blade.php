@@ -10,7 +10,7 @@
             <div class="cell-inline cell-1-1--mlg">
                 <div class="grid grid-ungap">
                     <div class="cell-inline cell-1-1--mlg">
-                        @filtergroup(['filter' => ['' => 'All', '2' => 'Premium', '1' => 'Standard'], 'variable' => 'is_premium', 'default' => ''])
+                        @filtergroup(['filter' => ['' => 'All', '4' => 'VIP', '3' => 'Priveleged', '2' => 'Premium', '1' => 'Standard'], 'variable' => 'is_premium', 'default' => ''])
                     </div>
                 </div>
             </div>
@@ -56,10 +56,12 @@
         <tb-column name="phone" label="{{ _p('pages.leads.table.col.phone', 'Phone') }}" media="desktop"></tb-column>
         <tb-column name="sales_count" label="{{ _p('pages.leads.table.col.sales', 'Sales') }}"></tb-column>
         <tb-column name="is_premium" label="{{ _p('pages.leads.table.col.status', 'Status') }}" media="desktop">
-            <template slot-scope="d">
-                <span class="status status_success" v-if="d.data.is_premium == 2"><span>Premium</span></span>
-                <span class="status status_inprogress" v-else><span>Standard</span></span>
-            </template>
+                <template slot-scope="d">
+                    <span class="status status_wait" v-if="d.data.is_premium == 1"><span>Standard</span></span>
+                    <span class="status status_inprogress" v-if="d.data.is_premium == 2"><span>Premium</span></span>
+                    <span class="status status_success" v-if="d.data.is_premium == 3"><span>Priveleged</span></span>
+                    <span class="status status_warning" v-if="d.data.is_premium == 4"><span>VIP</span></span>
+                </template>
         </tb-column>
         <tb-column name="">
             <template slot-scope="d">

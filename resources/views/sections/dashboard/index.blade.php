@@ -87,8 +87,10 @@
                     <tb-column name="sales_count" label="{{ _p('pages.leads.table.col.sales', 'Sales') }}" media="desktop"></tb-column>
                     <tb-column name="is_premium" label="{{ _p('pages.leads.table.col.status', 'Status') }}" media="desktop">
                         <template slot-scope="d">
-                            <span class="status status_success" v-if="d.data.is_premium == 2"><span>Premium</span></span>
-                            <span class="status status_inprogress" v-else><span>Standard</span></span>
+                            <span class="status status_wait" v-if="d.data.is_premium == 1"><span>Standard</span></span>
+                            <span class="status status_inprogress" v-if="d.data.is_premium == 2"><span>Premium</span></span>
+                            <span class="status status_success" v-if="d.data.is_premium == 3"><span>Priveleged</span></span>
+                            <span class="status status_warning" v-if="d.data.is_premium == 4"><span>VIP</span></span>
                         </template>
                     </tb-column>
                     @slot('mobile')
