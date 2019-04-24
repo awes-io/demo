@@ -63,8 +63,8 @@ class DashboardController extends Controller
             ->limit(5)
             ->datasetProperties([
                 [
-                    'borderColor' => config('indigo-layout.doughnut_colors'),
-                    'backgroundColor' => config('indigo-layout.doughnut_colors')
+                    'borderColor' => array_values(config('indigo-layout.chart_colors')),
+                    'backgroundColor' => array_values(config('indigo-layout.chart_colors'))
                 ]
             ])->build()->chart();
         

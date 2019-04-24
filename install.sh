@@ -22,13 +22,13 @@ printf "$green> Docker compose up$reset\n"
 docker-compose up -d --build
 
 printf "$green> Create .ENV file from local example$reset\n"
-cp .env.local .env
+cp .env.docker .env
 
 printf "$green> Remove composer.lock file for getting a new updates$reset\n"
 rm -f ./composer.lock
 
 printf "$green> Install all dependencies$reset\n"
-docker exec -it awes-demo-php bash -c "composer install"
+docker exec -i awes-demo-php bash -c "composer install"
 
 printf "$green> Service commands for Laravel: migration, key generate, cache clear etc $reset\n"
 docker exec -i awes-demo-php sh -c "php artisan key:generate && php artisan migrate:fresh --seed && php artisan cache:clear"
