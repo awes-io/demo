@@ -39,7 +39,7 @@
 ## Live version
 Follow to the [Demo](https://demo.awes.io/?utm_source=github&amp;utm_medium=demo_link) link.
 
-##💡 Quick Start `via Docker`
+## 💡 Quick Start `via Docker`
 We recommend using [Docker](https://www.docker.com/). Inside, we've collected everything you need to work with this demo on your local machine.
 
 **Here is a short guide:**
