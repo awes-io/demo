@@ -39,16 +39,16 @@
 ## Live version
 Follow to the [Demo](https://demo.awes.io/?utm_source=github&amp;utm_medium=demo_link) link.
 
-## Quick Start `Docker`
-💡 We recommend using [Docker](https://www.docker.com/). Inside, we've collected everything you need to work with this demo on your local machine.
+##💡 Quick Start `via Docker`
+We recommend using [Docker](https://www.docker.com/). Inside, we've collected everything you need to work with this demo on your local machine.
 
 **Here is a short guide:**
 1. Clone the repository: `git clone git@github.com:awes-io/demo.git`
 2. Go to the dirrectory: `cd ./demo`
 3. Please run: `sh ./install.sh` - the script will ask about `keys` from [Package Kit](https://www.pkgkit.com)
-4. You are ready! 🍺🍺🍺 [http://localhost:5080](http://localhost:5080) 
+4. 👏 You are ready! [http://localhost:5080](http://localhost:5080) 
 
-## Alternate Quick Start `Installer`
+## Alternate Quick Start `via Installer`
 
 [Awes.io](https://www.awes.io) utilizes [Composer](https://getcomposer.org/) to manage its dependencies. So, before using [Awes.io](https://www.awes.io), make sure you have Composer installed on your machine.
 
