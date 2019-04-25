@@ -7,8 +7,11 @@
     @include('integration.favicons')
 @endpush
 
-@section('content')
+@section('create_button')
     <button class="frame__header-add" @click="AWES.emit('modal::form.open')"><i class="icon icon-plus"></i></button>
+@endsection
+
+@section('content')
     <div class="filter">
         <div class="grid grid-align-center grid-justify-between grid-justify-center--mlg">
             <div class="cell-inline cell-1-1--mlg">
@@ -80,7 +83,9 @@
             <p>{{ _p('pages.leads.table.mobile.phone', 'Phone') }}: @{{ m.data.phone }}</p>
         @endslot
     @endtable
+@endsection
 
+@section('modals')
     {{--Add lead--}}
     <modal-window name="form" class="modal_formbuilder" title="{{ _p('pages.leads.modal.new_lead.title', 'Add new lead') }}">
         <form-builder url="{{ route('leads.store') }}" @sended="$refs.leads_table.update()" send-text="{{ _p('pages.leads.modal.new_lead.send_btn', 'Add new lead') }}">
@@ -100,5 +105,4 @@
             <fb-phone name="phone" label="{{ _p('pages.leads.modal.edit_lead.phone', 'Phone number') }}"></fb-phone>
         </form-builder>
     </modal-window>
-    
 @endsection

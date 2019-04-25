@@ -19,7 +19,7 @@
         <div class="cell cell-2-8--dlg-i cell-3-8--mmd-i">
             <div class="paycard paycard_white">
                 <div class="paycard__wrap paycard__wrap_flex">
-                    <img height="300" src="https://static.pkgkit.com/img/git-services/gitlab.svg" alt="">
+                    <img height="300" src="https://static.awes.io/promo/Logo_sign_color.svg" alt="Awes.io">
                 </div>
                 <div class="paycard__hover">
                     <div class="paycard__hover-cell">
@@ -32,7 +32,9 @@
             </div>
         </div>
     </div>
+@endsection
 
+@section('modals')
     {{--Modal windows--}}
     <modal-window name="form" class="modal_formbuilder" title="{{ _p('pages.settings.modal.password.title', 'Change password') }}">
         <form-builder url="{{ route('settings.password') }}" 

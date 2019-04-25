@@ -8,7 +8,6 @@
 @endpush
 
 @section('content')
-
     <content-wrapper :default='@json($lead)' store-data="content">
         <template slot-scope="data">
             <p><strong>{{ _p('pages.lead.info.name', 'Name') }}:</strong> @{{ data.name }}</p>
@@ -25,7 +24,9 @@
             </p>
         </template>
     </content-wrapper>
+@endsection
 
+@section('modals')
     {{--Edit lead--}}
     <modal-window name="edit-lead" class="modal_formbuilder" title="{{ _p('pages.leads.modal.edit_lead.title', 'Edit lead') }}">
         <form-builder method="PATCH" url="/leads/{id}" store-data="editLead">
