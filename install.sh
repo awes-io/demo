@@ -13,7 +13,7 @@ echo -e "${PWD}/.env"
 
 if [[ ! -e "${PWD}/.env" ]]; then
     if [[ -z "$1" ]]; then
-        read -p "Please enter the PackageKit project cdn key. Follow the link and create a project: https://www.pkgkit.com/demo/create
+        read -p "Please enter the PackageKit project cdn key. Follow the link and create a project: https://www.pkgkit.com/awes-io/create
 " -e KEY
     else
         KEY=$1
