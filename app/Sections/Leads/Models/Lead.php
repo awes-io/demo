@@ -9,7 +9,7 @@ class Lead extends Model
 {
     public $fillable = ['name', 'email', 'phone'];
 
-    public $orderable = ['id', 'name'];
+    public $orderable = ['created_at', 'name', 'sales_count'];
 
     public function sales()
     {

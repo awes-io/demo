@@ -14,6 +14,9 @@
                 send-text="{{ _p('pages.settings.form.user.send_btn', 'Update') }}">
                 <fb-input name="email" label="{{ _p('pages.settings.form.user.email', 'Email') }}"></fb-input>
                 <fb-input name="name" label="{{ _p('pages.settings.form.user.name', 'Name') }}"></fb-input>
+                <fb-input name="company" label="{{ _p('pages.settings.form.user.company', 'Company') }}"></fb-input>
+                <fb-input name="website" label="{{ _p('pages.settings.form.user.website', 'Website') }}"></fb-input>
+                <fb-phone name="phone" label="{{ _p('pages.settings.form.user.phone', 'Phone') }}"></fb-phone>
             </form-builder> 
         </div>
         <div class="cell cell-2-8--dlg-i cell-3-8--mmd-i">
