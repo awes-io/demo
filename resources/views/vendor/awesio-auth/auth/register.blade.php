@@ -3,6 +3,10 @@
 @section('meta_title', _p('pages.register.meta_title', 'Create an Account') . ' // ' . config('app.name'))
 @section('meta_description', _p('pages.register.meta_description', 'Awes.IO Platform Demo'))
 
+@push('head')
+    @include('integration.favicons')
+@endpush
+
 @section('title')
     <h2>{{ _p('pages.register.headline', 'Create Your Account') }}</h2>
 @endsection

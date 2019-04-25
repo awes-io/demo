@@ -3,6 +3,10 @@
 @section('meta_title', _p('pages.leads.meta_title', 'Leads') . ' // ' . config('app.name'))
 @section('meta_description', _p('pages.leads.meta_description', 'Leads captured by your app'))
 
+@push('head')
+    @include('integration.favicons')
+@endpush
+
 @section('content')
 
     <content-wrapper :default='@json($lead)' store-data="content">

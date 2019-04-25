@@ -3,6 +3,10 @@
 @section('meta_title', _p('pages.dashboard.meta_title', 'Overview') . ' // ' . config('app.name'))
 @section('meta_description', _p('pages.dashboard.meta_description', 'Check your dashboard with all important metrics and values.'))
 
+@push('head')
+    @include('integration.favicons')
+@endpush
+
 @section('content')
     <div class="grid">
         <div class="cell-full">
