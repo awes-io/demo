@@ -35,6 +35,7 @@ ENV LANGUAGE en_US.UTF-8
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN composer global require awes-io/installer
 RUN composer global require "laravel/envoy=~1.0"
 
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini

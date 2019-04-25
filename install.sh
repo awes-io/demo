@@ -9,6 +9,24 @@ yellow="\033[33m"
 cyan="\033[36m"
 white="\033[37m"
 
+echo -e "${PWD}/.env"
+
+if [[ ! -e "${PWD}/.env" ]]; then
+    if [[ -z "$1" ]]; then
+        read -p "Please enter the PackageKit project cdn key. Follow the link and create a project: https://www.pkgkit.com/demo/create
+" -e KEY
+    else
+        KEY=$1
+    fi
+
+    if [[ -z "$2" ]]; then
+        read -p "Please enter the PackageKit project token.
+" -e TOKEN
+    else
+        TOKEN=$2
+    fi
+fi
+
 printf "$green> Check chmod for storage dirrectory$reset\n"
 chmod -R 777 ./storage
 
@@ -21,11 +39,17 @@ docker-compose down -v
 printf "$green> Docker compose up$reset\n"
 docker-compose up -d --build
 
-printf "$green> Create .ENV file from local example$reset\n"
-cp .env.docker .env
-
 printf "$green> Remove composer.lock file for getting a new updates$reset\n"
 rm -f ./composer.lock
+
+if [[ ! -e "${PWD}/.env" ]]; then
+    printf "$green> Create .ENV file from local example$reset\n"
+    cp .env.docker .env
+
+    printf "$green> Writing PackageKit api token and cdn key$reset\n"
+    docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io token -t $TOKEN"
+    docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io key -k $KEY"
+fi
 
 printf "$green> Install all dependencies$reset\n"
 docker exec -i awes-demo-php bash -c "composer install"
