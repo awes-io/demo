@@ -5,6 +5,7 @@
 
 @push('head')
     @include('integration.favicons')
+    @include('integration.ga')
 @endpush
 
 @section('title')
