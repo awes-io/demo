@@ -57,3 +57,22 @@ docker exec -i awes-demo-php bash -c "composer install"
 
 printf "$green> Service commands for Laravel: migration, key generate, cache clear etc $reset\n"
 docker exec -i awes-demo-php sh -c "php artisan key:generate && php artisan migrate:fresh --seed && php artisan cache:clear"
+
+# Nice output :)
+printf "$reset\n\n\n"
+printf "$green     /\                                $reset\n"
+printf "$green    /  \__      _____  ___    (_) ___  $reset\n"
+printf "$green   / /\ \ \ /\ / / _ \/ __|   | |/ _ \ $reset\n"
+printf "$green  / ____ \ V  V /  __/\__ \   | | (_) |$reset\n"
+printf "$green /_/    \_\_/\_/ \___||___/(_)|_|\___/ $reset\n"
+printf "$reset\n\n"
+
+printf "$yellow Please support us on Patreon: https://www.patreon.com/awesdotio$reset\n"
+printf "$reset\n"
+
+printf "$cyan | ------------------------------------------- |$reset\n"
+printf "$cyan | Server started:   http://localhost:5080     |$reset\n"
+printf "$cyan | PhpMyAdmin:       http://localhost:5081     |$reset\n"
+printf "$cyan | ------------------------------------------- |$reset\n"
+
+printf "$reset\n"

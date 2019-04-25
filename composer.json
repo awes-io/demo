@@ -1,7 +1,7 @@
 {
     "name": "awes-io/demo",
     "type": "project",
-    "description": "Awes.io Demo CRM system",
+    "description": "Awes.io Demo system with some of the functionality for overview of features.",
     "keywords": [
         "awes-io",
         "framework",
@@ -19,7 +19,7 @@
         "awes-io/context-menu": "^1.0",
         "awes-io/filter-wrapper": "^1.0",
         "awes-io/form-builder": "^1.3",
-        "awes-io/indigo-layout": "^1.2",
+        "awes-io/indigo-layout": "^1.7",
         "awes-io/localization-helper": "^1.0",
         "awes-io/modal-window": "^1.0",
         "awes-io/navigation": "^0.0.2",
