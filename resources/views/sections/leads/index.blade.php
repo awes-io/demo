@@ -27,9 +27,12 @@
                         <template slot="toggler">
                             <span>{{  _p('pages.leads.filter.sort_by', 'Sort by') }}</span>
                         </template>
-                        <cm-query :param="{orderBy: 'id'}">ID &uarr;</cm-query>
-                        <cm-query :param="{orderBy: 'id_desc'}">ID &darr;</cm-query>
-                        <cm-query :param="{orderBy: 'name'}">{{ _p('pages.leads.filter.name', 'Lead name') }}</cm-query>
+                        <cm-query :param="{orderBy: 'created_at'}">{{ _p('pages.leads.filter.created_at', 'Created at') }} &uarr;</cm-query>
+                        <cm-query :param="{orderBy: 'created_at_desc'}">{{ _p('pages.leads.filter.created_at', 'Created at') }} &darr;</cm-query>
+                        <cm-query :param="{orderBy: 'name'}">{{ _p('pages.leads.filter.name', 'Lead name') }} &uarr;</cm-query>
+                        <cm-query :param="{orderBy: 'name_desc'}">{{ _p('pages.leads.filter.name', 'Lead name') }} &darr;</cm-query>
+                        <cm-query :param="{orderBy: 'sales_count'}">{{ _p('pages.leads.filter.sales', 'Sales') }} &uarr;</cm-query>
+                        <cm-query :param="{orderBy: 'sales_count_desc'}">{{ _p('pages.leads.filter.sales', 'Sales') }} &darr;</cm-query>
                     </context-menu>
                 </div>
                 <div class="filter__rlink">
@@ -46,6 +49,14 @@
                     <div class="grid grid-gap-x grid_forms">
                         <div class="cell">
                             <fb-input name="name" label="{{ _p('pages.leads.filter.name', 'Lead name') }}"></fb-input>
+                            <fb-input name="email" label="{{ _p('pages.leads.filter.email', 'Email') }}"></fb-input>
+                            <fb-phone name="phone" label="{{ _p('pages.leads.filter.phone', 'Phone') }}"></fb-phone>
+                            <fb-select
+                                :multiple="false"
+                                name="is_premium"
+                                :select-options="[{name: 'Standard', value: '1'},{name: 'Premium', value: '2'},{name: 'Priveleged', value: '3'},{name: 'VIP', value: '4'}]"
+                                label="{{ _p('pages.leads.filter.status', 'Status') }}"
+                            ></fb-select>
                         </div>
                     </div>
                 </filter-wrapper>
@@ -56,12 +67,12 @@
     @table([
         'name' => 'leads_table',
         'row_url'=> route('leads.index') . '/{id}',
-        'scope_api_url' => route('leads.scope')
+        'scope_api_url' => route('leads.scope'),
+        'scope_api_params' => ['is_premium', 'name', 'email', 'phone', 'orderBy']
     ])
         <tb-column name="name" label="{{ _p('pages.leads.table.col.name', 'Name') }}"></tb-column>
         <tb-column name="email" label="{{ _p('pages.leads.table.col.email', 'Email') }}"></tb-column>
         <tb-column name="phone" label="{{ _p('pages.leads.table.col.phone', 'Phone') }}" media="desktop"></tb-column>
-        <tb-column name="sales_count" label="{{ _p('pages.leads.table.col.sales', 'Sales') }}"></tb-column>
         <tb-column name="is_premium" label="{{ _p('pages.leads.table.col.status', 'Status') }}" media="desktop">
                 <template slot-scope="d">
                     <span class="status status_wait" v-if="d.data.is_premium == 1"><span>Standard</span></span>
@@ -70,6 +81,7 @@
                     <span class="status status_warning" v-if="d.data.is_premium == 4"><span>VIP</span></span>
                 </template>
         </tb-column>
+        <tb-column name="sales_count" label="{{ _p('pages.leads.table.col.sales', 'Sales') }}"></tb-column>
         <tb-column name="">
             <template slot-scope="d">
                 <context-menu right boundary="table">

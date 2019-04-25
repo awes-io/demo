@@ -65,7 +65,12 @@ return [
         "filter" => [
             "sort_by" => "Sort by",
             "name" => "Lead name",
-            "filter" => "Filter"
+            "filter" => "Filter",
+            "email" => "Email",
+            "phone" => "Phone",
+            "status" => "Status",
+            "created_at" => "Created at",
+            "sales" => "Sales"
         ],
         "notify" => [
             "store" => "New lead was successfully created",
@@ -80,7 +85,10 @@ return [
             "user" => [
                 "send_btn" => "Update",
                 "email" => "Email",
-                "name" => "Name"
+                "name" => "Name",
+                "company" => "Company",
+                "website" => "Website",
+                "phone" => "Phone"
             ]
         ],
         "change_photo" => "change photo",

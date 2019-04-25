@@ -10,6 +10,8 @@ class LeadRepository extends BaseRepository
 {
     protected $searchable = [
         'name' => 'like',
+        'email' => 'like',
+        'phone' => 'like',
         'is_premium',
     ];
 
