@@ -3,6 +3,10 @@
 @section('meta_title', _p('pages.settings.meta_title', 'Settings') . ' // ' . config('app.name'))
 @section('meta_description', _p('pages.settings.meta_description', 'You can set up your profile, update settings and change private account data.'))
 
+@push('head')
+    @include('integration.favicons')
+@endpush
+
 @section('content')
     <div class="grid">
         <div class="cell cell-6-8--dlg-i cell-5-8--mmd-i">
