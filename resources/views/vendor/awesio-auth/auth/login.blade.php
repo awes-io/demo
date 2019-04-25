@@ -7,6 +7,12 @@
     <h2>{{ _p('pages.login.headline', 'Welcome back!') }}</h2>
 @endsection
 
+@php 
+    alert('', 'Please authenticate using email: "test@test.com" and password: "secret"', 'danger')
+        ->to('top-auth2-perm'); 
+@endphp
+@notify(['name' => 'top-auth2-perm', 'stack' => false, 'config' => "{theme: 'inline', timeout: 0}"])
+
 @section('content')
     @include('indigo-layout::auth.login')
 @endsection
