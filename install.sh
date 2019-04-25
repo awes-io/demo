@@ -47,6 +47,7 @@ if [[ ! -e "${PWD}/.env" ]]; then
     cp .env.docker .env
 
     printf "$green> Writing PackageKit api token and cdn key$reset\n"
+    docker exec -i awes-demo-php bash -c "composer global require awes-io/installer"
     docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io token -t $TOKEN"
     docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io key -k $KEY"
 fi
