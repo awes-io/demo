@@ -16,7 +16,7 @@
         </div>
         <div class="cell-2-3 cell-2-3--dsm cell-1-1--tsm">
             @cardchartline([
-                'parameters' => ['leads_period' => 30],
+                'parameters' => ['leads_period'],
                 'api_url' => route('dashboard.leads.chart'),
                 'default_data' => $leadsChartData,
                 'read_more' => [
@@ -38,7 +38,7 @@
         </div>
         <div class="cell-1-3 cell-1-3--dsm cell-1-1--tsm">
             @cardchartline([
-                'parameters' => ['sales_period' => 60],
+                'parameters' => ['sales_period'],
                 'api_url' => route('dashboard.sales.chart'),
                 'default_data' => $salesChartData,
                 'filter' => [
