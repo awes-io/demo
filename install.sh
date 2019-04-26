@@ -13,14 +13,14 @@ echo -e "${PWD}/.env"
 
 if [[ ! -e "${PWD}/.env" ]]; then
     if [[ -z "$1" ]]; then
-        read -p "Please enter the PackageKit project cdn key. Follow the link and create a project: https://www.pkgkit.com/awes-io/create
+        read -p "Please enter your PKGKIT_CDN_KEY. You can get it for free on https://www.pkgkit.com/awes-io/create
 " -e KEY
     else
         KEY=$1
     fi
 
     if [[ -z "$2" ]]; then
-        read -p "Please enter the PackageKit project token.
+        read -p "Please enter your API-TOKEN from Package Kit:
 " -e TOKEN
     else
         TOKEN=$2
