@@ -70,9 +70,9 @@ printf "$reset\n\n"
 printf "$yellow Please support us on Patreon: https://www.patreon.com/awesdotio$reset\n"
 printf "$reset\n"
 
-printf "$cyan | ------------------------------------------- |$reset\n"
-printf "$cyan | Server started:   http://localhost:5080     |$reset\n"
-printf "$cyan | PhpMyAdmin:       http://localhost:5081     |$reset\n"
-printf "$cyan | ------------------------------------------- |$reset\n"
+printf "$cyan | ------------------------------------------------------------------------------ |$reset\n"
+printf "$cyan | Server started: http://localhost:5080  (Email: test@test.com  Passwd: secret)  |$reset\n"
+printf "$cyan | PhpMyAdmin:     http://localhost:5081  (User:  root           Passwd: awes)    |$reset\n"
+printf "$cyan | ------------------------------------------------------------------------------ |$reset\n"
 
 printf "$reset\n"
