@@ -29,7 +29,7 @@ class SettingController extends Controller
     {
         $user = $request->user();
 
-        $user->update($request->only('name', 'email'));
+        $user->update($request->all());
 
         return notify(
             _p('pages.settings.notify.update', 'User data successfully updated'),
