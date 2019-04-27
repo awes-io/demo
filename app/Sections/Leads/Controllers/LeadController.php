@@ -54,6 +54,9 @@ class LeadController extends Controller
     {
         $this->leads->update($request->all(), $id);
 
-        return notify(_p('pages.leads.notify.update', 'Lead was successfully updated'));
+        return notify(
+            _p('pages.leads.notify.update', 'Lead was successfully updated'), 
+            new Lead($this->leads->find($id))
+        );
     }
 }

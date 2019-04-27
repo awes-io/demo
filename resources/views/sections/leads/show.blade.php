@@ -30,7 +30,7 @@
 @section('modals')
     {{--Edit lead--}}
     <modal-window name="edit-lead" class="modal_formbuilder" title="{{ _p('pages.leads.modal.edit_lead.title', 'Edit lead') }}">
-        <form-builder method="PATCH" url="/leads/{id}" store-data="editLead">
+        <form-builder method="PATCH" url="/leads/{id}" store-data="content">
             <fb-input name="name" label="{{ _p('pages.leads.modal.edit_lead.name', 'Name') }}"></fb-input>
             <fb-input name="email" label="{{ _p('pages.leads.modal.edit_lead.email', 'Email') }}"></fb-input>
             <fb-phone name="phone" label="{{ _p('pages.leads.modal.edit_lead.phone', 'Phone number') }}"></fb-phone>
