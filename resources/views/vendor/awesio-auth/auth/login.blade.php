@@ -13,6 +13,11 @@
 @endsection
 
 @section('content')
+    <virtual-tour name="login" :steps="[
+        { 
+            message: '{{ _p('pages.tour.login.step_1', 'Build interactive business apps easy and fast. This demo was created in less than a day.') }}'
+        },
+    ]"></virtual-tour>
     @php 
         alert('', 'Please authenticate using email: "test@test.com" and password: "secret"', 'warning')
             ->to('top-auth2-perm'); 

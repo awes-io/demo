@@ -13,6 +13,16 @@
 @endsection
 
 @section('content')
+    <virtual-tour name="leads" :steps="[
+        { 
+            el: 'div.filter',
+            message: '{{ _p('pages.tour.leads.step_1', 'Full-featured and easy customizable filters and sorting capabilities.') }}'
+        },
+        { 
+            el: 'div.section',
+            message: '{{ _p('pages.tour.leads.step_2', 'Which are fully integrated with our table-builder component and pagination.') }}'
+        },
+    ]"></virtual-tour>
     <div class="filter">
         <div class="grid grid-align-center grid-justify-between grid-justify-center--mlg">
             <div class="cell-inline cell-1-1--mlg">
@@ -65,37 +75,39 @@
         </div>
     </div>
 
-    @table([
-        'name' => 'leads_table',
-        'row_url'=> route('leads.index') . '/{id}',
-        'scope_api_url' => route('leads.scope'),
-        'scope_api_params' => ['is_premium', 'name', 'email', 'phone', 'orderBy']
-    ])
-        <tb-column name="name" label="{{ _p('pages.leads.table.col.name', 'Name') }}"></tb-column>
-        <tb-column name="email" label="{{ _p('pages.leads.table.col.email', 'Email') }}"></tb-column>
-        <tb-column name="phone" label="{{ _p('pages.leads.table.col.phone', 'Phone') }}" media="desktop"></tb-column>
-        <tb-column name="is_premium" label="{{ _p('pages.leads.table.col.status', 'Status') }}" media="desktop">
+    <div class="section">
+        @table([
+            'name' => 'leads_table',
+            'row_url'=> route('leads.index') . '/{id}',
+            'scope_api_url' => route('leads.scope'),
+            'scope_api_params' => ['is_premium', 'name', 'email', 'phone', 'orderBy']
+        ])
+            <tb-column name="name" label="{{ _p('pages.leads.table.col.name', 'Name') }}"></tb-column>
+            <tb-column name="email" label="{{ _p('pages.leads.table.col.email', 'Email') }}"></tb-column>
+            <tb-column name="phone" label="{{ _p('pages.leads.table.col.phone', 'Phone') }}" media="desktop"></tb-column>
+            <tb-column name="is_premium" label="{{ _p('pages.leads.table.col.status', 'Status') }}" media="desktop">
+                    <template slot-scope="d">
+                        <span class="status status_wait" v-if="d.data.is_premium == 1"><span>Standard</span></span>
+                        <span class="status status_inprogress" v-if="d.data.is_premium == 2"><span>Premium</span></span>
+                        <span class="status status_success" v-if="d.data.is_premium == 3"><span>Priveleged</span></span>
+                        <span class="status status_warning" v-if="d.data.is_premium == 4"><span>VIP</span></span>
+                    </template>
+            </tb-column>
+            <tb-column name="sales_count" label="{{ _p('pages.leads.table.col.sales', 'Sales') }}"></tb-column>
+            <tb-column name="">
                 <template slot-scope="d">
-                    <span class="status status_wait" v-if="d.data.is_premium == 1"><span>Standard</span></span>
-                    <span class="status status_inprogress" v-if="d.data.is_premium == 2"><span>Premium</span></span>
-                    <span class="status status_success" v-if="d.data.is_premium == 3"><span>Priveleged</span></span>
-                    <span class="status status_warning" v-if="d.data.is_premium == 4"><span>VIP</span></span>
+                    <context-menu right boundary="table">
+                        <cm-button @click="AWES._store.commit('setData', {param: 'editLead', data: d.data}); AWES.emit('modal::edit-lead.open')">
+                            {{ _p('pages.leads.table.options.edit', 'Edit') }}
+                        </cm-button>
+                    </context-menu>
                 </template>
-        </tb-column>
-        <tb-column name="sales_count" label="{{ _p('pages.leads.table.col.sales', 'Sales') }}"></tb-column>
-        <tb-column name="">
-            <template slot-scope="d">
-                <context-menu right boundary="table">
-                    <cm-button @click="AWES._store.commit('setData', {param: 'editLead', data: d.data}); AWES.emit('modal::edit-lead.open')">
-                        {{ _p('pages.leads.table.options.edit', 'Edit') }}
-                    </cm-button>
-                </context-menu>
-            </template>
-        </tb-column>
-        @slot('mobile')
-            <p>{{ _p('pages.leads.table.mobile.phone', 'Phone') }}: @{{ m.data.phone }}</p>
-        @endslot
-    @endtable
+            </tb-column>
+            @slot('mobile')
+                <p>{{ _p('pages.leads.table.mobile.phone', 'Phone') }}: @{{ m.data.phone }}</p>
+            @endslot
+        @endtable
+    </div>
 @endsection
 
 @section('modals')

@@ -9,6 +9,28 @@
 @endpush
 
 @section('content')
+    <virtual-tour name="dashboard" :steps="[
+        { 
+            message: '{{ _p('pages.tour.dashboard.step_1', 'Full-featured user interface is available out of box.') }}'
+        },
+        { 
+            el: 'button.frame__userava',
+            message: '{{ _p('pages.tour.dashboard.step_2', 'As well as awesome dark mode. You can click on user avatar and switch UI theme later.') }}',
+            position: 'bottom',
+        },
+        { 
+            el: 'div.grid',
+            message: '{{ _p('pages.tour.dashboard.step_3', 'Create any types of charts easily.') }}'
+        },
+        { 
+            el: 'div.grid div.cell-2-3',
+            message: '{{ _p('pages.tour.dashboard.step_4', 'With dynamic filtering, additional metrics and links.') }}'
+        },
+        { 
+            el: 'div.grid div.cell-2-3 div.section',
+            message: '{{ _p('pages.tour.dashboard.step_5', 'As well as powerful interactive tables.') }}'
+        },
+    ]"></virtual-tour>
     <div class="grid">
         <div class="cell-full">
             @chartBarLine([

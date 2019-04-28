@@ -136,5 +136,25 @@ return [
     ],
     "analytics" => [
         "h1" => "Analytics"
+    ],
+    "tour" => [
+        "login" => [
+            "step_1" => "Build interactive business apps easy and fast. This demo was created in less than a day."
+        ],
+        "dashboard" => [
+            "step_1" => "Full-featured user interface is available out of box.",
+            "step_2" => "As well as awesome dark mode. You can click on user avatar and switch UI theme later.",
+            "step_3" => "Create any types of charts easily.",
+            "step_4" => "With dynamic filtering, additional metrics and links.",
+            "step_5" => "As well as powerful interactive tables."
+        ],
+        "leads" => [
+            "step_1" => "Full-featured and easy customizable filters and sorting capabilities.",
+            "step_2" => "Which are fully integrated with our table-builder component and pagination."
+        ],
+        "analytics" => [
+            "step_1" => "You can filter information for both charts and tables.",
+            "step_2" => "And customize their appearance and data representation."
+        ]
     ]
 ];
