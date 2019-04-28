@@ -19,7 +19,7 @@
         },
     ]"></virtual-tour>
     @php 
-        alert('', 'Please authenticate using email: "test@test.com" and password: "secret"', 'warning')
+        alert('', 'Please authenticate using email: "test@test.com" and password: "secret"', 'success')
             ->to('top-auth2-perm'); 
     @endphp
     @notify(['name' => 'top-auth2-perm', 'stack' => false, 'config' => "{theme: 'inline', timeout: 0}"])
