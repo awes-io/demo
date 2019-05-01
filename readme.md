@@ -4,29 +4,46 @@
     </a>
 </p>
 
+<h1 align="center">Awes.io Demo</h1>
+
+<p align="center">This is a build with demo functionality for an overview of features. For convenience, we've deployed this demo to our server.</p>
+
 <p align="center">
     <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields">
         <img src="https://img.shields.io/github/license/awes-io/demo.svg" alt="License" />
     </a>
+    <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields" target="_blank">
+        <img src="https://static.pkgkit.com/badges/vuejs.svg" alt="vue" />
+    </a>
+    <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields" target="_blank">
+        <img src="https://static.pkgkit.com/badges/laravel.svg" alt="laravel" />
+    </a>
     <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields">
         <img src="https://img.shields.io/github/last-commit/awes-io/demo.svg" alt="Last commit" />
-    </a>
-    <a href="https://www.pkgkit.com/?utm_source=github&amp;utm_medium=shields">
-        <img src="https://www.pkgkit.com/badges/hosted.svg" alt="Hosted by Package Kit" />
     </a>
     <a href="https://github.com/awes-io/demo">
         <img src="https://ga-beacon.appspot.com/UA-134431636-1/awes-io/demo" alt="Analytics" />
     </a>
+    <a href="https://www.pkgkit.com/?utm_source=github&amp;utm_medium=shields">
+        <img src="https://www.pkgkit.com/badges/hosted.svg" alt="Hosted by Package Kit" />
+    </a>
+    <a href="https://www.patreon.com/join/awesdotio">
+        <img src="https://static.pkgkit.com/badges/patreon.svg" alt="Patreon" />
+    </a>
 </p>
 
-<h1 align="center">Awes.io Demo</h1>
+## Features
 
-<p align="center">This is a build with demo functionality for an overview of features. For convenience, we've deployed this demo to our server. Follow the link to check it: <a href="https://demo.awes.io/?utm_source=github&amp;utm_medium=demo_link">Live Demo</a></p>
-
+* Free and Open-Source
+* 34 ready-to-use dedicated open-source packages
+* Awesome interface with a dark mode as an out-of-the-box feature
+* Easy to customize, based on Laravel & Vue.js
+* Well-designed for CRM, ERP, SaaS, Admin Dashboards, and Startups
+* Simple support of the applications
 
 <p align="center">
-    <a href="https://www.patreon.com/awesdotio" target="_blank">
-        <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patreon">
+    <a href="https://demo.awes.io/?utm_source=github&utm_medium=awes-io-head-link" title="Online Demo">
+        <img src="https://static.awes.io/promo/awes-io-demo-button.png" alt="Online Demo" width="220px" />
     </a>
 </p>
 
