@@ -156,5 +156,8 @@ return [
             "step_1" => "You can filter information for both charts and tables.",
             "step_2" => "And customize their appearance and data representation."
         ]
+    ],
+    "alerts" => [
+        "install_demo" => "You can always install this demo locally, via Docker or quick installer. <a href=\"https://github.com/awes-io/demo\" style=\"color:white;\">Install now</a>"
     ]
 ];
