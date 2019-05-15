@@ -27,6 +27,7 @@
         "awes-io/repository": "^1.0",
         "awes-io/system-notify": "^1.1",
         "awes-io/table-builder": "^1.0",
+        "awes-io/virtual-tour": "^1.1",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
