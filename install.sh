@@ -11,17 +11,15 @@ white="\033[37m"
 
 echo -e "${PWD}/.env"
 
-if [[ ! -e "${PWD}/.env" ]]; then
-    if [[ -z "$1" ]]; then
-        read -p "Please enter your PKGKIT_CDN_KEY. You can get it for free on https://www.pkgkit.com/awes-io/create
-" -e KEY
+if [ ! -e "${PWD}/.env" ]; then
+    if [ -z "$1" ]; then
+        read -p "Please enter your PKGKIT_CDN_KEY. You can get it for free on https://www.pkgkit.com/awes-io/create" -e KEY
     else
         KEY=$1
     fi
 
-    if [[ -z "$2" ]]; then
-        read -p "Please enter your API-TOKEN from Package Kit:
-" -e TOKEN
+    if [ -z "$2" ]; then
+        read -p "Please enter your API-TOKEN from Package Kit:" -e TOKEN
     else
         TOKEN=$2
     fi
@@ -42,7 +40,7 @@ docker-compose up -d --build
 printf "$green> Remove composer.lock file for getting a new updates$reset\n"
 rm -f ./composer.lock
 
-if [[ ! -e "${PWD}/.env" ]]; then
+if [ ! -e "${PWD}/.env" ]; then
     printf "$green> Create .ENV file from local example$reset\n"
     cp .env.docker .env
 
