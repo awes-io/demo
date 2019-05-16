@@ -13,7 +13,8 @@ echo -e "${PWD}/.env"
 
 if [ ! -e "${PWD}/.env" ]; then
     if [ -z "$1" ]; then
-        printf "$green> Please enter your PKGKIT_CDN_KEY. You can get it for free on https://www.pkgkit.com/awes-io/create$reset\n"
+        printf "$green> 🙌 Follow the link to get the key: https://www.pkgkit.com/awes-io/create 👈$reset\n"
+        printf "$green> Please enter your PKGKIT_CDN_KEY:$reset\n"
         read KEY
     else
         KEY=$1
