@@ -29,7 +29,7 @@ class SettingController extends Controller
     {
         $user = $request->user();
 
-        $user->update($request->all());
+        // $user->update($request->all());
 
         return notify(
             _p('pages.settings.notify.update', 'User data successfully updated'),
@@ -41,9 +41,9 @@ class SettingController extends Controller
     {
         $user = $request->user();
 
-        $user->update([
-            'password' => Hash::make($request->password),
-        ]);
+        // $user->update([
+        //     'password' => Hash::make($request->password),
+        // ]);
 
         return notify(
             _p('pages.settings.notify.password', 'Password successfully updated'),
