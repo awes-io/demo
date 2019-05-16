@@ -12,9 +12,7 @@ white="\033[37m"
 
 if [ ! -e "${PWD}/.env" ]; then
     if [ -z "$1" ]; then
-        printf "$yellow |\t-----------------------------------------------------------------------------\t|$reset\n"
-        printf "$yellow |\t🙌 Follow the link to get the keys: https://www.pkgkit.com/awes-io/create 👈 \t|$reset\n"
-        printf "$yellow |\t-----------------------------------------------------------------------------\t|$reset\n\n"
+        printf "$yellow 🙌 Please! Follow the link to get the keys (it's free): https://www.pkgkit.com/awes-io/create 👈$reset\n\n"
         printf "$green> Please enter your PKGKIT_CDN_KEY:$reset\n"
         read KEY
     else
@@ -70,7 +68,9 @@ printf "$green  / ____ \ V  V /  __/\__ \   | | (_) |$reset\n"
 printf "$green /_/    \_\_/\_/ \___||___/(_)|_|\___/ $reset\n"
 printf "$reset\n\n"
 
+
 printf "$yellow Please support us on Patreon: https://www.patreon.com/awesdotio$reset\n"
+printf "$cyan Give thanks star on Github: https://github.com/awes-io$reset\n"
 printf "$reset\n"
 
 printf "$cyan | ------------------------------------------------------------------------------ |$reset\n"
