@@ -13,13 +13,16 @@ echo -e "${PWD}/.env"
 
 if [ ! -e "${PWD}/.env" ]; then
     if [ -z "$1" ]; then
-        read -p "Please enter your PKGKIT_CDN_KEY. You can get it for free on https://www.pkgkit.com/awes-io/create" -e KEY
+        printf "$green> Please enter your PKGKIT_CDN_KEY. You can get it for free on https://www.pkgkit.com/awes-io/create$reset\n"
+        read KEY
     else
         KEY=$1
     fi
 
     if [ -z "$2" ]; then
-        read -p "Please enter your API-TOKEN from Package Kit:" -e TOKEN
+        printf "$green> Please enter your API-TOKEN from Package Kit:$reset\n"
+        read TOKEN
+        
     else
         TOKEN=$2
     fi
