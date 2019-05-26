@@ -52,15 +52,15 @@ docker-compose up -d --build
 printf "$green> Remove composer.lock file for getting a new updates$reset\n"
 rm -f ./composer.lock
 
-# if [ ! -e "${PWD}/.env" ]; then
-#     printf "$green> Create .ENV file from local example$reset\n"
-#     cp .env.docker .env
+if [ ! -e "${PWD}/.env" ]; then
+    printf "$green> Create .ENV file from local example$reset\n"
+    cp .env.docker .env
 
 #     printf "$green> Writing PackageKit api token and cdn key$reset\n"
 #     docker exec -i awes-demo-php bash -c "composer global require awes-io/installer"
 #     docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io token -t $TOKEN"
 #     docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io key -k $KEY"
-# fi
+fi
 
 printf "$green> Install all dependencies$reset\n"
 docker exec -i awes-demo-php bash -c "composer install"
