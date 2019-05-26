@@ -48,7 +48,9 @@
             "options": {
                 "http": {
                     "header": [
-                        "API-TOKEN: <!-- API key from www.pkgkit.com  -->"
+                        "API-TOKEN: 43e31d6e2d0223970c0cc9f1064f767fc65da1b1c9cd608813c897836e7b8312",
+                        "THIS IS DEMO KEY, for personal use only, it will become INVALID after short period of time",
+                        "If you need FREE production key, please visit https://www.pkgkit.com/awes-io/create"
                     ]
                 }
             }
