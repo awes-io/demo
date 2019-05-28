@@ -19,23 +19,23 @@ printf "$green /_/    \_\_/\_/ \___||___/(_)|_|\___/ $reset\n"
 printf "$reset\n\n"
 
 printf "$reset\n\n\n"
-if [ ! -e "${PWD}/.env" ]; then
-    if [ -z "$1" ]; then
-        printf "$white Please create a project on 📦 Package Kit [It's FREE]. Follow the link:$reset$blue https://www.pkgkit.com/awes-io/create $reset\n\n"
-        printf "$green> Enter your PKGKIT_CDN_KEY:$reset\n"
-        read KEY
-    else
-        KEY=$1
-    fi
+# if [ ! -e "${PWD}/.env" ]; then
+#     if [ -z "$1" ]; then
+#         printf "$white Please create a project on 📦 Package Kit [It's FREE]. Follow the link:$reset$blue https://www.pkgkit.com/awes-io/create $reset\n\n"
+#         printf "$green> Enter your PKGKIT_CDN_KEY:$reset\n"
+#         read KEY
+#     else
+#         KEY=$1
+#     fi
 
-    if [ -z "$2" ]; then
-        printf "$green> Enter your API-TOKEN:$reset\n"
-        read TOKEN
+#     if [ -z "$2" ]; then
+#         printf "$green> Enter your API-TOKEN:$reset\n"
+#         read TOKEN
 
-    else
-        TOKEN=$2
-    fi
-fi
+#     else
+#         TOKEN=$2
+#     fi
+# fi
 
 printf "$green> Check chmod for storage dirrectory$reset\n"
 chmod -R 777 ./storage
@@ -56,10 +56,10 @@ if [ ! -e "${PWD}/.env" ]; then
     printf "$green> Create .ENV file from local example$reset\n"
     cp .env.docker .env
 
-    printf "$green> Writing PackageKit api token and cdn key$reset\n"
-    docker exec -i awes-demo-php bash -c "composer global require awes-io/installer"
-    docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io token -t $TOKEN"
-    docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io key -k $KEY"
+#     printf "$green> Writing PackageKit api token and cdn key$reset\n"
+#     docker exec -i awes-demo-php bash -c "composer global require awes-io/installer"
+#     docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io token -t $TOKEN"
+#     docker exec -i awes-demo-php bash -c "php ~/.composer/vendor/bin/awes-io key -k $KEY"
 fi
 
 printf "$green> Install all dependencies$reset\n"
