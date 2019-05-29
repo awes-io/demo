@@ -60,39 +60,12 @@ Follow to the [Demo](https://demo.awes.io/?utm_source=github&amp;utm_medium=demo
 We recommend using [Docker](https://www.docker.com/). Inside, we've collected everything you need to work with this demo on your local machine.
 
 **Here is a short guide:**
-1. To get `API keys`, please create a free project on [Package Kit*](https://www.pkgkit.com/awes-io/create?utm_source=github&amp;utm_medium=demo_link)
-2. Clone the repository: `git clone git@github.com:awes-io/demo.git`
-3. Go to the directory: `cd ./demo`
-4. Please run: `sh ./install.sh` - the script will ask about `API keys`
-5. 👏 You are ready! [http://localhost:5080](http://localhost:5080)
+1. Clone the repository: `git clone git@github.com:awes-io/demo.git`
+2. Go to the directory: `cd ./demo`
+3. Please run: `sh ./install.sh`
+4. 👏 You are ready! [http://localhost:5080](http://localhost:5080)
 
-<sup>[Package Kit*](https://www.pkgkit.com/?utm_source=github&amp;utm_medium=demo_link) - private composer and npm repository.</sup>
-
-## Alternate Quick Start `via Installer`
-
-[Awes.io](https://www.awes.io) utilizes [Composer](https://getcomposer.org/) to manage its dependencies. So, before using [Awes.io](https://www.awes.io), make sure you have Composer installed on your machine.
-
-#### Step 1
-First, download the [Awes.io](https://www.awes.io) installer using Composer:
-```bash
-composer global require awes-io/installer
-```
-
-Make sure to place composer's system-wide vendor bin directory in your `$PATH` so the awes-io executable can be located by your system. This directory exists in different locations based on your operating system; however, some common locations include:
-
-- macOS: `$HOME/.composer/vendor/bin`, command: `export PATH=~/.composer/vendor/bin:$PATH`
-- GNU / Linux Distributions: `$HOME/.config/composer/vendor/bin`
-- Windows: `%USERPROFILE%\AppData\Roaming\Composer\vendor\bin`
-
-#### Step 2
-Once installed, the `awes-io demo` command will create a demo installation in the directory you specify. For instance, `awes-io demo crm` will create a directory named `crm` containing the last version of [Demo Awes.io](https://demo.awes.io) installation with all of Awes.io's dependencies already installed:
-
-```bash
-awes-io demo crm
-```
-
-#### We've finished! 👏
-You can open your local URL and try the demo!
+<sup>[Package Kit](https://www.pkgkit.com/?utm_source=github&amp;utm_medium=demo_link) - private composer and npm repository.</sup>
 
 
 ## Alternate Manual installation
@@ -100,9 +73,8 @@ For the fast start, we recommend using [Docker](#quick-start-via-docker).
 If for some reason it's not an option, please follow the guide:
 
 1. Clone the repository: `git clone git@github.com:awes-io/demo.git`
-2. Create a project by the link on Package Kit: [https://www.pkgkit.com/awes-io/create](https://www.pkgkit.com/awes-io/create)
-3. Copy project's API keys and save it to your `composer.json` and `.env` file
-4. `composer install`
+2. Go to the directory: `cd ./demo`
+3. Run `composer install`
 
 
 ## License
