@@ -88,3 +88,11 @@ printf "$cyan | PhpMyAdmin:     http://localhost:5081  (User:  root           Pa
 printf "$cyan | ------------------------------------------------------------------------------ |$reset\n"
 
 printf "$reset\n"
+
+read -p "Do you want to support us by giving Github star? [y/n]" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    composer thanks
+else
+    printf "$green Please consider to run 'composer thanks' later to thank us$reset\n"
+fi

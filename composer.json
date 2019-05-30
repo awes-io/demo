@@ -34,6 +34,7 @@
         "predis/predis": "^1.1"
     },
     "require-dev": {
+        "begimov/thanks": "^1.1",
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
@@ -64,6 +65,12 @@
     "extra": {
         "laravel": {
             "dont-discover": []
+        },
+        "awes-io-thanks": {
+            "awes-io/awes-io": "https://github.com/awes-io/awes-io.git",
+            "awes-io/form-builder": "https://github.com/awes-io/form-builder.git",
+            "awes-io/indigo-layout": "https://github.com/awes-io/indigo-layout.git",
+            "awes-io/table-builder": "https://github.com/awes-io/table-builder.git"
         }
     },
     "autoload": {
