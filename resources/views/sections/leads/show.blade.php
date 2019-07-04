@@ -21,7 +21,7 @@
                 <span class="status status_warning" v-if="data.is_premium == 4"><span>VIP</span></span>
             </p>
             <p>
-                <button class="upper-link" @click="AWES._store.commit('setData', {param: 'editLead', data: data}); AWES.emit('modal::edit-lead.open')">{{ _p('pages.lead.info.edit', 'Edit') }}</button>
+                <button class="upper-link" @click="AWES._store.commit('setData', {param: 'editLead', data: data}); AWES.emit('modal::edit-lead:open')">{{ _p('pages.lead.info.edit', 'Edit') }}</button>
             </p>
         </template>
     </content-wrapper>

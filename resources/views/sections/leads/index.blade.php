@@ -9,7 +9,7 @@
 @endpush
 
 @section('create_button')
-    <button class="frame__header-add" @click="AWES.emit('modal::form.open')"><i class="icon icon-plus"></i></button>
+    <button class="frame__header-add" @click="AWES.emit('modal::form:open')"><i class="icon icon-plus"></i></button>
 @endsection
 
 @section('content')
@@ -97,7 +97,7 @@
             <tb-column name="">
                 <template slot-scope="d">
                     <context-menu right boundary="table">
-                        <cm-button @click="AWES._store.commit('setData', {param: 'editLead', data: d.data}); AWES.emit('modal::edit-lead.open')">
+                        <cm-button @click="AWES._store.commit('setData', {param: 'editLead', data: d.data}); AWES.emit('modal::edit-lead:open')">
                             {{ _p('pages.leads.table.options.edit', 'Edit') }}
                         </cm-button>
                     </context-menu>
