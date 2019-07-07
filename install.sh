@@ -37,10 +37,10 @@ printf "$reset\n\n\n"
 #     fi
 # fi
 
-printf "$green> Check chmod for storage dirrectory$reset\n"
+printf "$green> Check chmod for storage directory$reset\n"
 chmod -R 777 ./storage
 
-printf "$green> Check bootstrap for storage dirrectory$reset\n"
+printf "$green> Check bootstrap for storage directory$reset\n"
 chmod -R 777 ./bootstrap
 
 printf "$green> Shutdown all current docker demo containers$reset\n"
