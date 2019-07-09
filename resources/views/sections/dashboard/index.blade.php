@@ -31,7 +31,15 @@
             message: '{{ _p('pages.tour.dashboard.step_5', 'As well as powerful interactive tables.') }}'
         },
     ]"></virtual-tour>
-    <div class="grid">
+
+    <div class="card text-center" style="background: linear-gradient(rgba(54, 39, 77, 0.62), rgba(78, 124, 204, 0.76)), url('https://static.awes.io/promo/Cover-2x.jpg'); background-repeat: no-repeat; background-size: cover;">
+        <h2 style="color:white;">{{ _p('pages.dashboard.banner.headline', '🙌 One Platform for all Challenges') }}</h2>
+        <p style="color:white;">{{ _p('pages.dashboard.banner.description', 'This demo was built on Awes.io Platform in a day 😎.') }}</p>
+        <a href="https://github.com/awes-io/demo" class="btn mr-10">{{ _p('pages.dashboard.banner.button_1.text', 'Try to Install') }}</a>
+        <a href="mailto:contact@awes.io" class="btn" title="{{ _p('pages.dashboard.banner.button_2.title', 'We can help you build enterprise project based on Awes.io') }}">{{ _p('pages.dashboard.banner.button_2.text', 'Project Request') }}</a>
+    </div>
+
+    <div class="grid section">
         <div class="cell-full">
             @chartBarLine([
                 'default_data' => $leadsComparisonChartData

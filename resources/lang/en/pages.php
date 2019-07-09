@@ -16,7 +16,18 @@ return [
     "dashboard" => [
         "h1" => "Dashboard",
         "meta_title" => "Overview",
-        "meta_description" => "Check your dashboard with all important metrics and values."
+        "meta_description" => "Check your dashboard with all important metrics and values.",
+        "banner" => [
+            "headline" => "🙌 One Platform for all Challenges",
+            "description" => "This demo was built on Awes.io Platform in a day 😎.",
+            "button_1" => [
+                "text" => "Try to Install"
+            ],
+            "button_2" => [
+                "text" => "Project Request",
+                "title" => "We can help you build enterprise project based on Awes.io"
+            ]
+        ]
     ],
     "leads" => [
         "h1" => "Leads",
