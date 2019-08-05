@@ -14,7 +14,7 @@
     "require": {
         "php": "^7.2",
         "awes-io/auth": "^1.1",
-        "awes-io/base-js": "^v1.5",
+        "awes-io/base-js": "^1.8",
         "awes-io/chart-builder": "^1.0",
         "awes-io/context-menu": "^1.0",
         "awes-io/filter-wrapper": "^1.0",
